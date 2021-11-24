@@ -54,4 +54,16 @@ function add(val1, val2) {
 combine = add;
 //combine = 'a'  //compilation error
 combineStrings = add;
+
+//type for callback function
+function decorateText(s: string, cb: (s: string) => void) {
+  return cb(s);
+}
+
+console.log(
+  decorateText('ss', (s) => {
+    return `hello ${s}`; // no error thrown on function return type
+  }),
+);
+
 console.log('ts is running!!', person);
