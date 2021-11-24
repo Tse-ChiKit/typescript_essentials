@@ -66,4 +66,9 @@ console.log(
   }),
 );
 
+//never
+function error(message: string): never {
+  throw new Error(message);
+}
+
 console.log('ts is running!!', person);
