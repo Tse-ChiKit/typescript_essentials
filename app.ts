@@ -22,8 +22,11 @@ const person: {
 //tuple allows push and pop
 person.role.push('admin');
 
+//type alias
+type Combinable = number | string;
+
 //union type
-function handleAdd(input1: number | string, input2: number | string) {
+function handleAdd(input1: Combinable, input2: number | string) {
   if (typeof input1 == 'number' && typeof input2 == 'string') {
     return input1 + input2;
   } else return 'please input 2 numbers';
@@ -36,4 +39,19 @@ function printText(text: string, alignment: 'left' | 'right' | 'center') {
 
 console.log(handleAdd(1, 2));
 
+//void type
+function printHello(): void {
+  console.log('hello');
+}
+
+//function type
+let combine: Function;
+let combineStrings: (s1: string, s2: string) => string;
+function add(val1, val2) {
+  return val1 + val2;
+}
+
+combine = add;
+//combine = 'a'  //compilation error
+combineStrings = add;
 console.log('ts is running!!', person);
