@@ -29,6 +29,11 @@ function handleAdd(input1: number | string, input2: number | string) {
   } else return 'please input 2 numbers';
 }
 
+//literal type
+function printText(text: string, alignment: 'left' | 'right' | 'center') {
+  console.log(text, alignment);
+}
+
 console.log(handleAdd(1, 2));
 
 console.log('ts is running!!', person);
