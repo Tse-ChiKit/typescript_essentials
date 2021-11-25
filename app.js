@@ -6,7 +6,7 @@ var Gender;
     Gender["Female"] = "F";
 })(Gender || (Gender = {}));
 //Object Type Definition
-const person = {
+var person = {
     name: 'eric',
     age: 12,
     role: [2, 'author'],
@@ -33,8 +33,8 @@ function printHello() {
     console.log('hello');
 }
 //function type
-let combine;
-let combineStrings;
+var combine;
+var combineStrings;
 function add(val1, val2) {
     return val1 + val2;
 }
@@ -45,8 +45,8 @@ combineStrings = add;
 function decorateText(s, cb) {
     return cb(s);
 }
-console.log(decorateText('ss', (s) => {
-    return `hello ${s}`; // no error thrown on function return type
+console.log(decorateText('ss', function (s) {
+    return "hello ".concat(s); // no error thrown on function return type
 }));
 //never
 function error(message) {
