@@ -47,7 +47,7 @@ function printHello(): void {
 //function type
 let combine: Function;
 let combineStrings: (s1: string, s2: string) => string;
-function add(val1, val2) {
+function add(val1: any, val2: any) {
   return val1 + val2;
 }
 
