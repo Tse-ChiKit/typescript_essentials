@@ -20,6 +20,16 @@ var Staff = /** @class */ (function () {
         this.hobbies = [];
         this.id = id;
     }
+    Object.defineProperty(Staff.prototype, "firstHobby", {
+        get: function () {
+            return this.hobbies[this.hobbies.length - 1];
+        },
+        set: function (h) {
+            this.hobbies[0] = h;
+        },
+        enumerable: false,
+        configurable: true
+    });
     //   shortcut initalization
     //   constructor(public n: string) {
     //     this.name = n;
@@ -49,4 +59,6 @@ var Manager = /** @class */ (function (_super) {
     return Manager;
 }(Staff));
 var m1 = new Manager('eric', '00002', 20000);
+m1.firstHobby = 'drinking';
+console.log('fh', m1.firstHobby);
 m1.showBouns();

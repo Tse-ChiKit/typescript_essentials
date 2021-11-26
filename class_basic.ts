@@ -3,6 +3,14 @@ class Staff {
   name: string;
   private hobbies: string[];
 
+  get firstHobby() {
+    return this.hobbies[this.hobbies.length - 1];
+  }
+
+  set firstHobby(h: string) {
+    this.hobbies[0] = h;
+  }
+
   constructor(n: string, id: string) {
     this.name = n;
     this.hobbies = [];
@@ -41,4 +49,7 @@ class Manager extends Staff {
 }
 
 const m1 = new Manager('eric', '00002', 20000);
+m1.firstHobby = 'drinking';
+console.log('fh', m1.firstHobby);
+
 m1.showBouns();
