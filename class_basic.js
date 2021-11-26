@@ -30,20 +30,11 @@ var Staff = /** @class */ (function () {
         enumerable: false,
         configurable: true
     });
-    //   shortcut initalization
-    //   constructor(public n: string) {
-    //     this.name = n;
-    //     this.hobbies = [];
-    //   }
-    Staff.prototype.describe = function () {
-        console.log('this context is :', this);
-        console.log("person's name is ".concat(this.name, " hobbies are ").concat(this.hobbies));
-    };
     return Staff;
 }());
-var nurse = new Staff('fann', '0001');
-nurse.describe();
-var nursecopy = { describe: nurse.describe, name: 'xiexie' };
+//const nurse = new Staff('fann', '0001');
+//nurse.describe();
+//const nursecopy = { describe: nurse.describe, name: 'xiexie' };
 //nursecopy.describe(); // this execution context on nursecopy
 //class inheritance
 var Manager = /** @class */ (function (_super) {
@@ -56,9 +47,35 @@ var Manager = /** @class */ (function (_super) {
     Manager.prototype.showBouns = function () {
         console.log(this.bonus);
     };
+    Manager.prototype.describe = function () {
+        console.log('this context is :', this);
+        console.log("person's name is ".concat(this.name));
+    };
+    Manager.type = 'M';
     return Manager;
 }(Staff));
 var m1 = new Manager('eric', '00002', 20000);
 m1.firstHobby = 'drinking';
 console.log('fh', m1.firstHobby);
+console.log(Manager.type);
 m1.showBouns();
+//singleton constructor
+var CEO = /** @class */ (function (_super) {
+    __extends(CEO, _super);
+    function CEO(name, id) {
+        return _super.call(this, name, id) || this;
+    }
+    CEO.getInstance = function () {
+        if (this.instance) {
+            //this refer on CEO class
+            return this.instance;
+        }
+        this.instance = new CEO('TimC', '000000000001');
+        return this.instance;
+    };
+    CEO.prototype.describe = function () {
+        console.log("I'm a CEO");
+    };
+    return CEO;
+}(Staff));
+console.log(CEO.getInstance());
